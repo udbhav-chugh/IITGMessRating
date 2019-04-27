@@ -24,6 +24,29 @@ $i=0;
 ?>
 
 
+<div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-2"></div>
+          <div class="col align-self-center">
+            <br><br>
+
+
+  <form action="updatehostel.php" method="post">
+    <div class="card">
+      <div class="card-header">
+        Add Hostel
+      </div>
+      <div class="card-body">
+      <p><input class="form-control" name='hname' placeholder="Hostel Name" type="text" size="20" required/></p>
+      <p><input class="form-control" name='mmusername' placeholder="Username" type="text" size="50" required/></p>
+      <p><input class="form-control" name='mmpassword' placeholder="Password" type="password" size="50" required/></p>
+      <p><input class="form-control" name='mmname' placeholder="Name" type="text" size="50" required/></p>
+      <p><input class="form-control" name='mmcontact' placeholder="Contact Number" type="text" size="20" required/></p>
+        <input class="btn btn-primary " name="add" type="submit" value="Add Hostel"/>
+        </div>
+      </div>
+
+  </form>
 
 <div class="accordion" id="accordionExample">
    <?php while($row = $result->fetch_assoc()) {
@@ -48,7 +71,7 @@ $i=0;
                 $tempname=$row['MMName'];
                 $tempcontact=$row['MMContactNumber'];
                ?>
-               <p><input class="form-control" name='hname<?php  print $i ?>' placeholder="Hostel Name" type="text" size="50" value=<?php echo $temphname ?> readonly/></p>
+               <p><input class="form-control" name='hname<?php  print $i ?>' placeholder="Hostel Name" type="text" size="20" value=<?php echo $temphname ?> readonly/></p>
              <p><input class="form-control" name='mmusername<?php  print $i ?>' placeholder="Username" type="text" size="50" value=<?php echo $tempusername ?> required/></p>
              <p><input class="form-control" name='mmname<?php  print $i ?>' placeholder="Name" type="text" size="50" value=<?php echo $tempname ?> required/></p>
              <p><input class="form-control" name='mmcontact<?php  print $i ?>' placeholder="Contact Number" type="text" size="20" value=<?php echo $tempcontact ?> required/></p>
@@ -57,9 +80,11 @@ $i=0;
            </div>
          </div>
        </div>
-     <?php 
+     <?php
      $i=$i+1;
    } ?>
+
+
  </div>
 
  <?php
@@ -72,17 +97,38 @@ $i=0;
        $mmcontact=$_POST['mmcontact'.$j];
        $sql2 = "UPDATE Hostels SET MMUsername='".$mmusername."', MMName='".$mmname."', MMContactNumber='".$mmcontact."' WHERE Name='".$hname."'";
        if ($conn->query($sql2) === TRUE) {
-           echo "Record updated successfully";
            header("Location: updatehostel.php");
-       } else {
-           echo "Error updating record: " . $conn->error;
        }
 
 
      }
      $j=$j+1;
    }
+
+   if(isset($_POST['add'])){
+     $hname2=$_POST['hname'];
+     $mmusername2=$_POST['mmusername'];
+     $mmpassword2=md5($_POST['mmpassword']);
+     $mmname2=$_POST['mmname'];
+     $mmcontact2=$_POST['mmcontact'];
+     $sql4="SELECT * FROM Hostels WHERE MMUsername='".$mmusername2."'";
+
+     if ($conn->query($sql4)->num_rows >0) {
+       $message = "Username Exists";
+       echo "<script type='text/javascript'>alert('$message');</script>";
+     }
+     else{
+     $sql3 = "INSERT INTO Hostels (Name,MMUsername,MMPassword,MMName,MMContactNumber) VALUES ('".$hname2."','".$mmusername2."','".$mmpassword2."','".$mmname2."','".$mmcontact2."')";
+     if ($conn->query($sql3) === TRUE) {
+     }
+   }
+   }
  ?>
+
+</div>
+<div class="col-lg-2"></div>
+</div>
+</div>
 
 
 

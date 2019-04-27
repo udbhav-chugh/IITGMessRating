@@ -134,8 +134,9 @@
               <p><h6 class="card-subtitle mb-2 text-muted">All changes in mess are reflected at the end of the month only.</h6></p>
             </div>
           </div>
-        </div>
+
       </form>
+      </div>
     </div>
     <div class="col-lg-2"></div>
   </div>
