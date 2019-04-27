@@ -1,4 +1,15 @@
-<?php include 'navbar.php' ?>
+<?php
+  session_start();
+  if($_SESSION['Designation']=='student'){
+    include 'navbar.php';
+  }
+  if($_SESSION['Designation']=='mm'){
+    include 'navbar_mm.php';
+  }
+  if($_SESSION['Designation']=='admin'){
+    include 'nav_bar_admin.php';
+  }
+?>
 
 <?php startblock('content') ?>
 
