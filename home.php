@@ -17,6 +17,18 @@
 <body>
 
 
+<div>
+
+  <?php
+      if(isset($_POST['login']))
+      {
+        echo 'User Submitted';
+      }
+   ?>
+
+</div>
+
+      <form action="profile.php" method="post">
   <div class="container-fluid">
           <div class="row">
             <div class="col-lg-2"></div>
@@ -27,15 +39,17 @@
   <div class="card">
     <h5 class="card-header">Enter IITG credentials</h5>
     <div class="card-body">
-      <p><input class="form-control" placeholder="Username" id="chat-head-input" type="text" size="100"/></p>
-      <p><input class="form-control" placeholder="Password" id="chat-message-input" type="password" size="100"/></p>
-      <input class="btn btn-primary" id="chat-message-submit" type="button" value="Login"/>
+
+      <p><input class="form-control" placeholder="Username" type="text" size="50" required/></p>
+      <p><input class="form-control" placeholder="Password" type="password" size="50" required/></p>
+      <input class="btn btn-primary" name="login" type="submit" value="Login"/>
     </div>
   </div>
 </div>
 <div class="col-lg-2"></div>
 </div>
 </div>
+</form>
   <!-- {% block your_content %}
   {% endblock %} -->
   <!-- Optional JavaScript -->
