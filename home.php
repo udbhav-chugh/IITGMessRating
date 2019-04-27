@@ -20,36 +20,179 @@
 <div>
 
   <?php
+  session_start();
+
+  $servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "IITGMessRating";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+die("Connection failed: " . $conn->connect_error);
+}
+
       if(isset($_POST['login']))
       {
-        echo 'User Submitted';
+        $uname=$_POST['username'];
+        $upassword=$_POST['password'];
+        $sql = "SELECT * FROM Users WHERE Username='".$uname."' AND Designation='student'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+
+        while($row = $result->fetch_assoc()) {
+            // if(.$row["Password"].==$upassword){
+            if($row["Password"]==md5($upassword) ){
+              $_SESSION['Username'] = $uname;
+              header("Location: profile.php");
+            }
+            else {
+
+              $message = "Invalid Password";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+            }
+        }
+
+        } else {
+          $message = "Invalid Username";
+          echo "<script type='text/javascript'>alert('$message');</script>";
+        }
       }
+
+      if(isset($_POST['loginmm']))
+      {
+        $uname=$_POST['username'];
+        $upassword=$_POST['password'];
+        $sql = "SELECT * FROM Hostels WHERE MMUsername='".$uname."'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+
+        while($row = $result->fetch_assoc()) {
+            // if(.$row["Password"].==$upassword){
+            if($row["MMPassword"]==md5($upassword) ){
+              $_SESSION['Username'] = $uname;
+              header("Location: profile.php");
+            }
+            else {
+              $message = "Invalid Password";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+            }
+        }
+
+        } else {
+          $message = "Invalid Username";
+          echo "<script type='text/javascript'>alert('$message');</script>";
+        }
+      }
+
+      if(isset($_POST['logina']))
+      {
+        $uname=$_POST['username'];
+        $upassword=$_POST['password'];
+        $sql = "SELECT * FROM Users WHERE Username='".$uname."' AND Designation='admin'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+
+        while($row = $result->fetch_assoc()) {
+            // if(.$row["Password"].==$upassword){
+            if($row["Password"]==md5($upassword)){
+              $_SESSION['Username'] = $uname;
+              header("Location: profile.php");
+            }
+            else {
+
+              $message = "Invalid Password";
+              echo "<script type='text/javascript'>alert('$message');</script>";
+            }
+        }
+
+        } else {
+          $message = "Invalid Username";
+          echo "<script type='text/javascript'>alert('$message');</script>";
+        }
+      }
+    $conn->close();
    ?>
 
 </div>
 
-      <form action="profile.php" method="post">
+
   <div class="container-fluid">
           <div class="row">
             <div class="col-lg-2"></div>
             <div class="col align-self-center">
 
-
-
+                <div id="accordion">
   <div class="card">
-    <h5 class="card-header">Enter IITG credentials</h5>
-    <div class="card-body">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Student
+        </button>
+      </h5>
+    </div>
 
-      <p><input class="form-control" placeholder="Username" type="text" size="50" required/></p>
-      <p><input class="form-control" placeholder="Password" type="password" size="50" required/></p>
-      <input class="btn btn-primary" name="login" type="submit" value="Login"/>
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <form action="home.php" method="post">
+        <p><input class="form-control" name='username' placeholder="Username" type="text" size="50" required/></p>
+        <p><input class="form-control" name='password' placeholder="Password" type="password" size="50" required/></p>
+        <input class="btn btn-primary" name="login" type="submit" value="Login"/>
+        </form>
+      </div>
     </div>
   </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Mess Manager
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <form action="home.php" method="post">
+        <p><input class="form-control" name='username' placeholder="Username" type="text" size="50" required/></p>
+        <p><input class="form-control" name='password' placeholder="Password" type="password" size="50" required/></p>
+        <input class="btn btn-primary" name="loginmm" type="submit" value="Login"/>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Admin
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+        <form action="home.php" method="post">
+        <p><input class="form-control" name='username' placeholder="Username" type="text" size="50" required/></p>
+        <p><input class="form-control" name='password' placeholder="Password" type="password" size="50" required/></p>
+        <input class="btn btn-primary" name="logina" type="submit" value="Login"/>
+      </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
 </div>
 <div class="col-lg-2"></div>
 </div>
 </div>
-</form>
+
   <!-- {% block your_content %}
   {% endblock %} -->
   <!-- Optional JavaScript -->
