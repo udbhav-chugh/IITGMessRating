@@ -1,7 +1,6 @@
 <?php
   session_start();
-    include 'navbar.php';
-
+    include 'navbar_mm.php';
 ?>
 
 <?php startblock('content') ?>
@@ -9,7 +8,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-2"></div>
-    <div class="col-lg-4">
+    <div class="col">
       <br><br><br>
 
 
@@ -29,26 +28,22 @@
         die("Connection failed: " . $conn->connect_error);
       }
 
-      $sql = "SELECT * FROM Users WHERE Username='".$user."'";
+      $sql = "SELECT * FROM Hostels WHERE MMUsername='".$user."'";
       $result = $conn->query($sql);
       $curmess = "";
       if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-          $curmess = $row["HostelSubscribed"];
           echo '<div class="card">
           <div class="card-header">
           Profile
           </div>
           <div class="card-body">
-          <h5 class="card-title">'.$row["Name"].'</h5>
-          <h6 class="card-subtitle mb-2 text-muted">'.$row["Username"].'</h6>
+          <h5 class="card-title">'.$row["MMName"].'</h5>
           <p class="card-text">
-          <b>Roll Number:</b> '.$row["RollNumber"].'<br>
-          <b>Hostel Residence:</b> '.$row["HostelReside"].'<br>
-          <b>Current Hostel Mess Subscribed:</b> '.$row["HostelSubscribed"].'<br>
-          <b>Program:</b> '.$row["Program"].'<br>
-          <b>Designation:</b> '.$row["Designation"].'<br>
+          <b>Username:</b> '.$row["MMUsername"].'<br>
+          <b>Contact Number:</b> '.$row["MMContactNumber"].'<br>
+          <b>Designation:</b> Mess Manager<br>
           </p>
           </div>
           </div>
@@ -61,7 +56,6 @@
 
       ?>
 
-    </div>
 
 
     <?php
@@ -104,55 +98,11 @@
 
     ?>
 
-
-    <div class="col-lg-4">
-      <br><br><br>
-
-      <form action="profile.php" method="post">
-        <div class="card">
-          <div class="card-header">
-            Change Next Month Mess
-          </div>
-          <div class="card-body">
-            <p><b>Current Mess:</b> <?php echo $curmess ?></p>
-            <p>
-              <select class="form-control" id="select_1" name="newmess">
-                <option value="Manas">Manas</option>
-                <option value="Dihing">Dihing</option>
-                <option value="Barak">Barak</option>
-                <option value="Siang">Siang</option>
-                <option value="Kameng">Kameng</option>
-                <option value="Lohit">Lohit</option>
-                <option value="Brahmaputra">Brahmaputra</option>
-                <option value="Umiam">Umiam</option>
-                <option value="Kapili">Kapili</option>
-                <option value="Dhansiri">Dhansiri</option>
-                <option value="Married Scholars">Married Scholars</option>
-              </select>
-              </p>
-              <input class="btn btn-primary btn-block" name="messchange" type="submit" value="Change Mess"/>
-              <p><h6 class="card-subtitle mb-2 text-muted">All changes in mess are reflected at the end of the month only.</h6></p>
-            </div>
-          </div>
-        </div>
-      </form>
     </div>
     <div class="col-lg-2"></div>
   </div>
 </div>
 
-<?php
-if (isset($_POST['messchange'])){
-  $newmess = $_POST['newmess'];
-  $sql = "UPDATE Users SET HostelNew='$newmess' WHERE Username='$user'";
-  // echo $sql;
-  $conn->query($sql);
-  $message = 'Hostel Mess Updated Successfully';
-  echo "<script type='text/javascript'>alert('$message');</script>";
-  $conn->close();
-
-}
-?>
 <br>
 
 <div class="container-fluid">

@@ -77,7 +77,7 @@ die("Connection failed: " . $conn->connect_error);
             if($row["MMPassword"]==md5($upassword) ){
               $_SESSION['Username'] = $uname;
               $_SESSION['Designation'] = 'mm';
-              header("Location: profile.php");
+              header("Location: profile_mm.php");
             }
             else {
               $message = "Invalid Password";
@@ -105,7 +105,7 @@ die("Connection failed: " . $conn->connect_error);
             if($row["Password"]==md5($upassword)){
               $_SESSION['Username'] = $uname;
               $_SESSION['Designation'] = 'admin';
-              header("Location: profile.php");
+              header("Location: profile_admin.php");
             }
             else {
 

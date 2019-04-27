@@ -25,7 +25,7 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="/MessRating/profile.php">Profile<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/MessRating/profile_admin.php">Profile<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/MessRating/viewratings.php">View Ratings<span class="sr-only">(current)</span></a>
