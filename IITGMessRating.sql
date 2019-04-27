@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 27, 2019 at 11:15 PM
+-- Generation Time: Apr 27, 2019 at 08:29 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -55,8 +55,8 @@ CREATE TABLE `Hostels` (
 --
 
 INSERT INTO `Hostels` (`Name`, `MMUsername`, `MMPassword`, `MMName`, `MMContactNumber`) VALUES
-('Kapili', 'kapili', 'kapili', 'Amitabh Bachhan', '8860695878'),
-('Lohit', 'lohit', 'lohit', 'Rohit Shetty', '8402028442');
+('Kapili', 'kapili', '342a588bb029dc5d9faa4f2c88a672a1', 'Amitabh Bachhan', '8860695878'),
+('Lohit', 'lohit', 'facb6460875b14ea8f8cdacdb38a90cf', 'Rohit Shetty', '8402028442');
 
 -- --------------------------------------------------------
 
@@ -99,9 +99,9 @@ CREATE TABLE `Users` (
 --
 
 INSERT INTO `Users` (`Username`, `Password`, `RollNumber`, `Name`, `HostelReside`, `HostelSubscribed`, `Program`, `Designation`) VALUES
-('admin', 'admin', '-', 'Admin', '-', '-', '-', 'admin'),
-('baran170102035', '123', '170101084', 'Mayank Baranwal', 'Kapili', 'Kapili', 'B.Tech.', 'student'),
-('udbha170123055', '123', '170101081', 'Udbhav Chugh', 'Lohit', 'Kapili', 'B.Tech.', 'student');
+('admin', '21232f297a57a5a743894a0e4a801fc3', '-', 'Admin', '-', '-', '-', 'admin'),
+('baran170102035', '202cb962ac59075b964b07152d234b70', '170101084', 'Mayank Baranwal', 'Kapili', 'Kapili', 'B.Tech.', 'student'),
+('udbha170123055', '202cb962ac59075b964b07152d234b70', '170101081', 'Udbhav Chugh', 'Lohit', 'Kapili', 'B.Tech.', 'student');
 
 --
 -- Indexes for dumped tables
