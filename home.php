@@ -47,6 +47,7 @@ die("Connection failed: " . $conn->connect_error);
             // if(.$row["Password"].==$upassword){
             if($row["Password"]==md5($upassword) ){
               $_SESSION['Username'] = $uname;
+              $_SESSION['Designation'] = 'student';
               header("Location: profile.php");
             }
             else {
@@ -75,6 +76,7 @@ die("Connection failed: " . $conn->connect_error);
             // if(.$row["Password"].==$upassword){
             if($row["MMPassword"]==md5($upassword) ){
               $_SESSION['Username'] = $uname;
+              $_SESSION['Designation'] = 'mm';
               header("Location: profile.php");
             }
             else {
@@ -102,6 +104,7 @@ die("Connection failed: " . $conn->connect_error);
             // if(.$row["Password"].==$upassword){
             if($row["Password"]==md5($upassword)){
               $_SESSION['Username'] = $uname;
+              $_SESSION['Designation'] = 'admin';
               header("Location: profile.php");
             }
             else {
