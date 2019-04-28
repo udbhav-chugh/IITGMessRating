@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 27, 2019 at 08:29 PM
+-- Generation Time: Apr 28, 2019 at 05:36 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -90,6 +90,7 @@ CREATE TABLE `Users` (
   `Name` varchar(100) NOT NULL,
   `HostelReside` varchar(30) NOT NULL DEFAULT '-',
   `HostelSubscribed` varchar(30) NOT NULL DEFAULT '-',
+  `HostelNew` varchar(30) NOT NULL DEFAULT '-',
   `Program` varchar(10) NOT NULL DEFAULT '-',
   `Designation` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -98,10 +99,10 @@ CREATE TABLE `Users` (
 -- Dumping data for table `Users`
 --
 
-INSERT INTO `Users` (`Username`, `Password`, `RollNumber`, `Name`, `HostelReside`, `HostelSubscribed`, `Program`, `Designation`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', '-', 'Admin', '-', '-', '-', 'admin'),
-('baran170102035', '202cb962ac59075b964b07152d234b70', '170101084', 'Mayank Baranwal', 'Kapili', 'Kapili', 'B.Tech.', 'student'),
-('udbha170123055', '202cb962ac59075b964b07152d234b70', '170101081', 'Udbhav Chugh', 'Lohit', 'Kapili', 'B.Tech.', 'student');
+INSERT INTO `Users` (`Username`, `Password`, `RollNumber`, `Name`, `HostelReside`, `HostelSubscribed`, `HostelNew`, `Program`, `Designation`) VALUES
+('admin', '21232f297a57a5a743894a0e4a801fc3', '-', 'Admin', '-', '-', '-', '-', 'admin'),
+('baran170102035', '202cb962ac59075b964b07152d234b70', '170101084', 'Mayank Baranwal', 'Kapili', 'Kapili', 'Kameng', 'B.Tech.', 'student'),
+('udbha170123055', '202cb962ac59075b964b07152d234b70', '170101081', 'Udbhav Chugh', 'Lohit', 'Kapili', 'Manas', 'B.Tech.', 'student');
 
 --
 -- Indexes for dumped tables
