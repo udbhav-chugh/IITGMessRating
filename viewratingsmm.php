@@ -193,4 +193,5 @@ include 'navbar_mm.php' ?>
   </div>
 </div>
 
+<br><br>
 <?php endblock() ?>

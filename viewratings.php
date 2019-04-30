@@ -191,5 +191,6 @@ include 'navbar.php' ?>
     <div class="col-lg-2"></div>
   </div>
 </div>
+<br><br>
 
 <?php endblock() ?>

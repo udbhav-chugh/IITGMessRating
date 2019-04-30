@@ -113,6 +113,8 @@ $i=0;
    if(isset($_POST['add'])){
      $key2=strtolower($_POST['key']);
      $val2=$_POST['val'];
+     if($val2 >= -5 && $val2 <=5)
+     {
      $sql4="SELECT * FROM Keywords WHERE KeyName='".$key2."'";
 
      if ($conn->query($sql4)->num_rows >0) {
@@ -124,7 +126,11 @@ $i=0;
        header("Location: updatekeywords.php");
      }
    }
-
+}
+else{
+  $message = "Value must be between -5 and 5";
+  echo "<script type='text/javascript'>alert('$message');</script>";
+}
    }
  ?>
 
@@ -132,7 +138,7 @@ $i=0;
 <div class="col-lg-2"></div>
 </div>
 </div>
-
+<br><br>
 
 
 

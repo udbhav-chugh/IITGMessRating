@@ -193,4 +193,6 @@ include 'nav_bar_admin.php' ?>
   </div>
 </div>
 
+<br><br>
+
 <?php endblock() ?>

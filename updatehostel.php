@@ -42,7 +42,7 @@ $i=0;
       <p><input class="form-control" name='mmusername' placeholder="Username" type="text" size="50" required/></p>
       <p><input class="form-control" name='mmpassword' placeholder="Password" type="password" size="50" required/></p>
       <p><input class="form-control" name='mmname' placeholder="Name" type="text" size="50" required/></p>
-      <p><input class="form-control" name='mmcontact' placeholder="Contact Number" type="text" size="20" required/></p>
+      <p><input class="form-control" name='mmcontact' placeholder="Contact Number" type="number" size="20" required/></p>
         <input class="btn btn-primary " name="add" type="submit" value="Add Hostel"/>
         </div>
       </div>
@@ -79,7 +79,7 @@ $i=0;
               <label >Full Name</label>
              <p><input class="form-control" name='mmname<?php  print $i ?>' placeholder="Name" type="text" size="50" value="<?php echo $tempname ?>" required/></p>
              <label >Contact Number</label>
-             <p><input class="form-control" name='mmcontact<?php  print $i ?>' placeholder="Contact Number" type="text" size="20" value=<?php echo $tempcontact ?> required/></p>
+             <p><input class="form-control" name='mmcontact<?php  print $i ?>' placeholder="Contact Number" type="number" size="20" value=<?php echo $tempcontact ?> required/></p>
              <input class="btn btn-primary" name="update<?php  print $i ?>" type="submit" value="Update"/>
              </form>
            </div>
@@ -136,7 +136,7 @@ $i=0;
 </div>
 </div>
 
-
+<br><br>
 
 
 <?php endblock() ?>
