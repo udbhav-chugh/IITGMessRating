@@ -48,6 +48,7 @@ die("Connection failed: " . $conn->connect_error);
             if($row["Password"]==md5($upassword) ){
               $_SESSION['Username'] = $uname;
               $_SESSION['Designation'] = 'student';
+              $_SESSION['logged_in'] = true;
               header("Location: profile.php");
             }
             else {
@@ -77,6 +78,7 @@ die("Connection failed: " . $conn->connect_error);
             if($row["MMPassword"]==md5($upassword) ){
               $_SESSION['Username'] = $uname;
               $_SESSION['Designation'] = 'mm';
+              $_SESSION['logged_in'] = true;
               header("Location: profile_mm.php");
             }
             else {
@@ -105,6 +107,7 @@ die("Connection failed: " . $conn->connect_error);
             if($row["Password"]==md5($upassword)){
               $_SESSION['Username'] = $uname;
               $_SESSION['Designation'] = 'admin';
+              $_SESSION['logged_in'] = true;
               header("Location: profile_admin.php");
             }
             else {
