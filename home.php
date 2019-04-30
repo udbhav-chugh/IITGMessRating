@@ -106,8 +106,8 @@
         <div class="carousel-caption d-none d-md-block">
           <div class="cards" style="opacity: 0.9">
 
-            <h5>IITG Mess Feedback System</h5>
-            <p>The one stop solution to Mess Reports, Feedback, Change Mess and Admin support</p>
+            <h2>IITG Mess Feedback System</h2>
+            <h5>The one stop solution to Mess Reports, Feedback, Change Mess and Admin support</h5>
             <div class="card-body">
               <form action="home.php" method="post">
                 <p><input class="form-control" name='username' placeholder="Username" type="text" size="50" style="text-align:center;" required/></p>
@@ -138,8 +138,8 @@
         <div class="carousel-caption" >
           <div class="cards" style="opacity: 0.9">
 
-            <h5>IITG Mess Feedback System</h5>
-            <p>The one stop solution to Mess Reports, Feedback, Change Mess and Admin support</p>
+            <h2>IITG Mess Feedback System</h2>
+            <h5>The one stop solution to Mess Reports, Feedback, Change Mess and Admin support</h5>
             <div class="card-body">
               <form action="home.php" method="post">
                 <p><input class="form-control" name='username' placeholder="Username" type="text" size="50" style="text-align:center;" required/></p>

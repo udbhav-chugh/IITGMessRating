@@ -20,7 +20,7 @@ if(isset($_POST['passchange']))
   }
   else{
     $user = $_SESSION['Username'];
-    $sql = "SELECT Password FROM Users WHERE Username='$user' AND Designation='student'";
+    $sql = "SELECT Password FROM Users WHERE Username='$user' AND Designation='admin'";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
       while($row = $result->fetch_assoc()) {
@@ -55,7 +55,7 @@ if(isset($_POST['passchange']))
   <div class="row">
     <div class="col-lg-2"></div>
     <div class="col">
-      <form action="profile.php" method="post">
+      <form action="profile_admin.php" method="post">
         <div class="card">
           <div class="card-header">
             Update Password

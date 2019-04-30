@@ -73,12 +73,12 @@
       }
       else{
         $user = $_SESSION['Username'];
-        $sql = "SELECT Password FROM Users WHERE Username='$user' AND Designation='student'";
+        $sql = "SELECT MMPassword FROM Hostels WHERE MMUsername='$user'";
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
             // if(.$row["Password"].==$upassword){
-            if($row["Password"]!=md5($curpass) ){
+            if($row["MMPassword"]!=md5($curpass) ){
               // $_SESSION['Username'] = $uname;
               // header("Location: profile.php");
               $message = 'Invalid Password';
@@ -86,7 +86,7 @@
             }
 
             else {
-              $sql2 = "UPDATE Users SET Password='$newpasshash' WHERE Username='$user'";
+              $sql2 = "UPDATE Hostels SET MMPassword='$newpasshash' WHERE MMUsername='$user'";
               $result2 = $conn->query($sql2);
               $message = 'Password Updated Successfully';
               echo "<script type='text/javascript'>alert('$message');</script>";
@@ -110,7 +110,7 @@
   <div class="row">
     <div class="col-lg-2"></div>
     <div class="col">
-      <form action="profile.php" method="post">
+      <form action="profile_mm.php" method="post">
         <div class="card">
           <div class="card-header">
             Update Password

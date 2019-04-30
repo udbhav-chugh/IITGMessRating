@@ -26,7 +26,7 @@ if (empty($_SESSION['logged_in']))
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-    <a class="navbar-brand" href="/home">IITG - Mess Rating System</a>
+    <a class="navbar-brand" href="/MessRating/home.php">IITG - Mess Rating System</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
     aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@ if (empty($_SESSION['logged_in']))
         <a class="nav-link" href="/MessRating/profile_admin.php">Profile<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/MessRating/viewratings.php">Ratings(Report)<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/MessRating/viewratingsadmin.php">Ratings(Report)<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/MessRating/updatehostel.php">Update/Add Hostel<span class="sr-only">(current)</span></a>
@@ -50,7 +50,7 @@ if (empty($_SESSION['logged_in']))
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/MessRating/updatemess.php">Update Mess<span class="sr-only">(current)</span></a>
-      </li>      
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="/MessRating/logout.php">Logout<span class="sr-only">(current)</span></a>
       </li>

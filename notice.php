@@ -40,6 +40,7 @@ while($row10 = $result10->fetch_assoc()) {
 }
 }
 
+
 $sql2 = "SELECT * FROM Keywords";
 
 $hcount = 0;
@@ -128,7 +129,7 @@ $hcount = 0;
   <h5 class="card-header" align = "center">Notice</h5>
   <div class="card-body">
     <h5 class="card-title" align = "center" >Show Cause!</h5>
-    <p class="card-text">The mess manager <b><?php echo $fname ?></b> is hereby informed that the mess of hostel <b><?php echo $mess10 ?></b> has underperformed considerably attaining a rating of <b><?php echo $totrating ?> (</b>on a scale of -5 to 5<b>)</b> for the month of <b><?php echo date("F Y",strtotime("-1 months"))?></b>. He is, therefore, required to submit a detailed report of what went wrong and what strategies will be undertaken to chnage this situation the next month. A repetition of such an event will result in cancelling of contract wiht the mess manager. Failing to do so will result in serious action against the mess manager.</p>
+    <p class="card-text">The mess manager <b><?php echo $fname ?></b> is hereby informed that the mess of hostel <b><?php echo $mess10 ?></b> has underperformed considerably attaining a rating of <b><?php echo $totrating ?> (</b>on a scale of -5 to 5<b>)</b> for the month of <b><?php echo date("F Y",strtotime("-1 months"))?></b>. He/She is, therefore, required to submit a detailed report of what went wrong and what strategies will be undertaken to change this situation next month. A repetition of such an event will result in cancellation of contract with the mess manager. Failing to do so will result in serious action against the mess manager.</p>
   </div>
 </div>
 <?php

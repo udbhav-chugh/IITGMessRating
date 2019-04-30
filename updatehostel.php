@@ -125,6 +125,7 @@ $i=0;
      else{
      $sql3 = "INSERT INTO Hostels (Name,MMUsername,MMPassword,MMName,MMContactNumber) VALUES ('".$hname2."','".$mmusername2."','".$mmpassword2."','".$mmname2."','".$mmcontact2."')";
      if ($conn->query($sql3) === TRUE) {
+       header("Location: updatehostel.php");
      }
    }
    }

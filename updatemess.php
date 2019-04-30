@@ -41,14 +41,14 @@ if ($result->num_rows > 0) {
     </thead>
       <tbody>
 
-<?php 
+<?php
 while($row = $result->fetch_assoc()) {
   $username=$row["Username"];
   $name=$row["Name"];
   $messsub=$row["HostelSubscribed"];
   $messnew=$row["HostelNew"];
 ?>
-  
+
     <tr>
       <th scope="row"><?php echo $i; $i=$i+1; ?></th>
       <td><?php echo $username?></td>
@@ -78,7 +78,7 @@ else{
 
 ?>
   <h1 align="center"> No Mess Changes this month yet</h1>
-<?php 
+<?php
   }
 ?>
 
@@ -94,11 +94,10 @@ if(isset($_POST['update']))
     while($row2 = $result2->fetch_assoc()) {
       $hostelnew=$row2["HostelNew"];
       $user=$row2["Username"];
-      echo "lol";
      $sql3= "UPDATE Users SET HostelSubscribed='$hostelnew' , HostelNew='-' WHERE Username='$user'";
      if ($conn->query($sql3) === TRUE) {
        header("Location: updatemess.php");
-     } 
+     }
     }
 
   }

@@ -1,5 +1,5 @@
 <?php
-include 'navbar.php' ?>
+include 'nav_bar_admin.php' ?>
 
 <?php startblock('content') ?>
 
@@ -12,7 +12,7 @@ include 'navbar.php' ?>
       <br><br><br>
       <div class="card">
         <div class="card-body">
-          <form action="viewratings.php" method="post">
+          <form action="viewratingsadmin.php" method="post">
 
             <p>Enter year and month of the mess ratings that you want to view</p>
             <p><input class="form-control" placeholder="Year (yyyy)" name="year" type="text" required/></p>
@@ -42,7 +42,7 @@ include 'navbar.php' ?>
         <?php
         if (empty($_SESSION['datee']))
         {
-          header("Location: temp_rating.php");
+          header("Location: temp_rating_admin.php");
         }
         $date=$_SESSION["datee"];
         $servername = "localhost";
@@ -134,7 +134,7 @@ include 'navbar.php' ?>
               </div>
               <div id="collapse<?php echo $hostel; ?>" class="collapse <?php if ($hcount == 1) echo "show";?>" aria-labelledby="heading<?php echo $hostel; ?>" data-parent="#accordion">
                 <div class="card-body">
-                  <form action="viewratings.php" method="post">
+                  <form action="viewratingsadmin.php" method="post">
                     <label>Total Meaningful Feedbacks</label>
                       <p><input class="form-control" type="text" size="50" value= <?php echo $totcount ?> readonly/></p>
                       <label>Positive Feedbacks</label>
@@ -143,6 +143,7 @@ include 'navbar.php' ?>
                       <p><input class="form-control" type="number" size="50" value= <?php echo $negcount ?> readonly/></p>
                       <label>Neutral Feedbacks</label>
                       <p><input class="form-control" type="number" size="50" value= <?php echo $nocount ?> readonly/></p>
+
 
                   </form>
                 </div>
@@ -176,7 +177,7 @@ include 'navbar.php' ?>
 
           if ($fail == 0){
               $_SESSION["datee"]=$date2;
-              header("Location: temp_rating.php");
+              header("Location: temp_rating_admin.php");
 
       }
         else {
