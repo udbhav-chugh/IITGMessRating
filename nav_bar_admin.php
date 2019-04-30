@@ -37,7 +37,7 @@ if (empty($_SESSION['logged_in']))
         <a class="nav-link" href="/MessRating/profile_admin.php">Profile<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/MessRating/viewratings.php">View Ratings<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/MessRating/viewratings.php">Ratings(Report)<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/MessRating/updatehostel.php">Update/Add Hostel<span class="sr-only">(current)</span></a>

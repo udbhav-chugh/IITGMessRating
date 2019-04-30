@@ -1,11 +1,9 @@
 <?php
-session_start();
-include 'navbar.php' ?>
+include 'navbar_mm.php' ?>
 
 <?php startblock('content') ?>
-<?php
-  $first  = 1;
- ?>
+
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-2"></div>
@@ -42,35 +40,11 @@ include 'navbar.php' ?>
       <div id="accordion">
 
         <?php
-        if (isset($_POST['viewrat'])){
-          $date = "";
-          $fail = 0;
-          // if ($first == 0){
-          //   $date = date("Ym", strtotime("-1 months"));
-          //   $first = 1;
-          //   echo $first;
-          //   echo "b   ";
-          //
-          // }
-          // else{
-            // echo $first;
-            // echo "c   ";
-          $year = $_POST['year'];
-          $month = $_POST['mon'];
-            if (is_numeric($year)){
-              if ($year < 2100 && $year > 1950){
-                  $date = $year."".$month;
-                  echo $date;
-              }
-              else
-               $fail = 1;
-            }
-            else
-              $fail = 1;
-          // }
-
-          if ($fail == 0){
-
+        if (empty($_SESSION['datee']))
+        {
+          header("Location: temp_rating.php");
+        }
+        $date=$_SESSION["datee"];
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -94,6 +68,8 @@ include 'navbar.php' ?>
             $hostel = $row3['Name'];
             $totrating = 0.0;
             $totcount = 0;
+            $poscount=0;
+            $negcount=0;
             $hcount += 1;
             $sql = "SELECT * FROM Feedback WHERE YearMonth='$date' AND HostelSubscribed='$hostel'";
             // echo $sql;
@@ -125,6 +101,11 @@ include 'navbar.php' ?>
                 }
                 if ($count != 0){
                   // echo $rating/$count;
+                  if($rating>0)
+                  {$poscount=$poscount+1;}
+                  else{
+                    $negcount=$negcount+1;
+                  }
                   $totrating +=  $rating / $count;
                   $totcount += 1;
                 }
@@ -143,13 +124,22 @@ include 'navbar.php' ?>
               <div class="card-header" id="heading<?php echo $hostel; ?>">
                 <h5 class="mb-0">
                   <button class="btn btn-link <?php if ($hcount != 1) echo "collapsed";?>" data-toggle="collapse" data-target="#collapse<?php echo $hostel; ?>" aria-expanded="<?php if ($hostel == 1) echo "true"; else echo "false"; ?>" aria-controls="collapse<?php echo $hostel; ?>">
-                    <?php echo $hostel; ?> - Average Rating = <?php echo $totrating; ?>
+                    <b><?php echo $hostel; ?></b> :  Average Rating = <b><?php echo $totrating; ?></b>
                   </button>
                 </h5>
               </div>
               <div id="collapse<?php echo $hostel; ?>" class="collapse <?php if ($hcount == 1) echo "show";?>" aria-labelledby="heading<?php echo $hostel; ?>" data-parent="#accordion">
                 <div class="card-body">
-                  healfkdj
+                  <form action="viewratings.php" method="post">
+                    <label>Total Feedbacks</label>
+                      <p><input class="form-control" type="text" size="50" value= <?php echo $totcount ?> readonly/></p>
+                      <label>Positive Feedbacks</label>
+                      <p><input class="form-control" type="number" size="50" value= <?php echo $poscount ?> readonly/></p>
+                      <label>Negative Feedbacks</label>
+                      <p><input class="form-control" type="number" size="50" value= <?php echo $negcount ?> readonly/></p>
+
+
+                  </form>
                 </div>
               </div>
             </div>
@@ -158,7 +148,36 @@ include 'navbar.php' ?>
 
           }
         }
+
+        ?>
+
+        <?php
+        if (isset($_POST['viewrat'])){
+          $date2 = "";
+          $fail = 0;
+
+          $year = $_POST['year'];
+          $month = $_POST['mon'];
+            if (is_numeric($year)){
+              if ($year < 2100 && $year > 1950){
+                  $date2 = $year."".$month;
+              }
+              else
+               $fail = 1;
+            }
+            else
+              $fail = 1;
+          // }
+
+          if ($fail == 0){
+              $_SESSION["datee"]=$date2;
+              header("Location: temp_rating.php");
+
       }
+        else {
+          $message = "Invalid Year";
+          echo "<script type='text/javascript'>alert('$message');</script>";
+        }
       }
         ?>
       </div>
