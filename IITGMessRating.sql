@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Apr 28, 2019 at 05:36 AM
+-- Generation Time: May 01, 2019 at 01:32 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -29,12 +29,21 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `Feedback` (
+  `ID` int(11) NOT NULL,
   `Username` varchar(50) NOT NULL,
   `HostelSubscribed` varchar(30) NOT NULL,
   `Feedback` varchar(50000) NOT NULL,
-  `YearMonth` varchar(10) NOT NULL,
-  `Rating` double NOT NULL
+  `YearMonth` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `Feedback`
+--
+
+INSERT INTO `Feedback` (`ID`, `Username`, `HostelSubscribed`, `Feedback`, `YearMonth`) VALUES
+(1, 'udbha170123055', 'Kapili', 'ddfgsdfg', '201904'),
+(2, 'udbha170123055', 'Kapili', 'lolololololol Excellent ok OK', '201904'),
+(3, 'udbha170123055', 'Kapili', 'excellent ok', '201904');
 
 -- --------------------------------------------------------
 
@@ -74,8 +83,9 @@ CREATE TABLE `Keywords` (
 --
 
 INSERT INTO `Keywords` (`KeyName`, `Value`) VALUES
-('Excellent', 5),
-('Pathetic', -5);
+('excellent', 5),
+('ok', 0),
+('pathetic', -5);
 
 -- --------------------------------------------------------
 
@@ -109,16 +119,38 @@ INSERT INTO `Users` (`Username`, `Password`, `RollNumber`, `Name`, `HostelReside
 --
 
 --
+-- Indexes for table `Feedback`
+--
+ALTER TABLE `Feedback`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `Hostels`
 --
 ALTER TABLE `Hostels`
   ADD PRIMARY KEY (`MMUsername`);
 
 --
+-- Indexes for table `Keywords`
+--
+ALTER TABLE `Keywords`
+  ADD PRIMARY KEY (`KeyName`);
+
+--
 -- Indexes for table `Users`
 --
 ALTER TABLE `Users`
   ADD PRIMARY KEY (`Username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Feedback`
+--
+ALTER TABLE `Feedback`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
