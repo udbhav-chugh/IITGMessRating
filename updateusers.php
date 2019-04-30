@@ -43,33 +43,39 @@ $i=0;
       <!-- <p><input class="form-control" name='hostelres' placeholder="Hostel Resided" type="text" size="30" required/></p> -->
       <p>
         <select class="form-control" id="select_1" name="hostelres">
-          <option value="Manas">Manas</option>
-          <option value="Dihing">Dihing</option>
-          <option value="Barak">Barak</option>
-          <option value="Siang">Siang</option>
-          <option value="Kameng">Kameng</option>
-          <option value="Lohit">Lohit</option>
-          <option value="Brahmaputra">Brahmaputra</option>
-          <option value="Umiam">Umiam</option>
-          <option value="Kapili">Kapili</option>
-          <option value="Dhansiri">Dhansiri</option>
-          <option value="Married Scholars">Married Scholars</option>
+          <?php
+          $sql15 = "SELECT * FROM Hostels";
+          $result15 = $conn->query($sql15);
+          if ($result15->num_rows > 0) {
+            // output data of each row
+            while($row15 = $result15->fetch_assoc()) {
+              $hostel15 = $row15['Name'];
+              ?>
+              <option value="<?php echo $hostel15; ?>"><?php echo $hostel15; ?></option>
+
+              <?php
+            }
+          }
+          ?>
         </select>
         </p>
       <!-- <p><input class="form-control" name='hostelsub' placeholder="Hostel Subscribed" type="text" size="30" required/></p> -->
       <p>
         <select class="form-control" id="select_2" name="hostelsub">
-          <option value="Manas">Manas</option>
-          <option value="Dihing">Dihing</option>
-          <option value="Barak">Barak</option>
-          <option value="Siang">Siang</option>
-          <option value="Kameng">Kameng</option>
-          <option value="Lohit">Lohit</option>
-          <option value="Brahmaputra">Brahmaputra</option>
-          <option value="Umiam">Umiam</option>
-          <option value="Kapili">Kapili</option>
-          <option value="Dhansiri">Dhansiri</option>
-          <option value="Married Scholars">Married Scholars</option>
+          <?php
+          $sql16 = "SELECT * FROM Hostels";
+          $result16 = $conn->query($sql16);
+          if ($result16->num_rows > 0) {
+            // output data of each row
+            while($row16 = $result16->fetch_assoc()) {
+              $hostel16 = $row16['Name'];
+              ?>
+              <option value="<?php echo $hostel16; ?>"><?php echo $hostel16; ?></option>
+
+              <?php
+            }
+          }
+          ?>
         </select>
         </p>
       <p><input class="form-control" name='prog' placeholder="Program" type="text" size="10" required/></p>

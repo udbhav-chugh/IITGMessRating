@@ -1,6 +1,6 @@
 <?php
 
-  include 'navbar.php';
+include 'navbar.php';
 
 ?>
 
@@ -101,6 +101,7 @@
         }
       }
     }
+    // echo "hello";
 
     ?>
 
@@ -117,29 +118,32 @@
             <p><b>Current Mess:</b> <?php echo $curmess ?></p>
             <p>
               <select class="form-control" id="select_1" name="newmess">
-                <option value="Manas">Manas</option>
-                <option value="Dihing">Dihing</option>
-                <option value="Barak">Barak</option>
-                <option value="Siang">Siang</option>
-                <option value="Kameng">Kameng</option>
-                <option value="Lohit">Lohit</option>
-                <option value="Brahmaputra">Brahmaputra</option>
-                <option value="Umiam">Umiam</option>
-                <option value="Kapili">Kapili</option>
-                <option value="Dhansiri">Dhansiri</option>
-                <option value="Married Scholars">Married Scholars</option>
+                <?php
+                $sql15 = "SELECT * FROM Hostels";
+                $result15 = $conn->query($sql15);
+                if ($result15->num_rows > 0) {
+                  // output data of each row
+                  while($row15 = $result15->fetch_assoc()) {
+                    $hostel15 = $row15['Name'];
+                    ?>
+                    <option value="<?php echo $hostel15; ?>"><?php echo $hostel15; ?></option>
+
+                    <?php
+                  }
+                }
+                ?>
               </select>
-              </p>
-              <input class="btn btn-primary btn-block" name="messchange" type="submit" value="Change Mess"/>
-              <p><h6 class="card-subtitle mb-2 text-muted">All changes in mess are reflected at the end of the month only.</h6></p>
-            </div>
+            </p>
+            <input class="btn btn-primary btn-block" name="messchange" type="submit" value="Change Mess"/>
+            <p><h6 class="card-subtitle mb-2 text-muted">All changes in mess are reflected at the end of the month only.</h6></p>
           </div>
+        </div>
 
       </form>
-      </div>
     </div>
-    <div class="col-lg-2"></div>
   </div>
+  <div class="col-lg-2"></div>
+</div>
 </div>
 
 <?php
