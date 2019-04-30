@@ -1,7 +1,7 @@
 <?php
-  session_start();
 
     include 'nav_bar_admin.php';
+
 ?>
 
 <?php startblock('content') ?>

@@ -1,5 +1,14 @@
 <!-- <!doctype html> -->
 
+<?php
+  session_start();
+if (empty($_SESSION['logged_in']))
+{
+    header("Location: home.php");
+    exit(0);
+}
+?>
+
 <?php require_once 'ti.php' ?>
 <html lang="en">
 
@@ -29,6 +38,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/MessRating/viewratings.php">View Ratings<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/MessRating/home.php">Logout<span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>

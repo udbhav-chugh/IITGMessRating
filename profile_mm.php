@@ -1,6 +1,7 @@
 <?php
-  session_start();
+
     include 'navbar_mm.php';
+
 ?>
 
 <?php startblock('content') ?>

@@ -1,5 +1,14 @@
 <!-- <!doctype html> -->
 
+<?php
+  session_start();
+if (empty($_SESSION['logged_in']))
+{
+    header("Location: home.php");
+    exit(0);
+}
+?>
+
 <?php require_once 'ti.php' ?>
 <html lang="en">
 
@@ -38,6 +47,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/MessRating/updatekeywords.php">Add/Remove Keywords<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/MessRating/logout.php">Logout<span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>

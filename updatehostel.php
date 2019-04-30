@@ -37,6 +37,7 @@ $i=0;
         Add Hostel
       </div>
       <div class="card-body">
+
       <p><input class="form-control" name='hname' placeholder="Hostel Name" type="text" size="20" required/></p>
       <p><input class="form-control" name='mmusername' placeholder="Username" type="text" size="50" required/></p>
       <p><input class="form-control" name='mmpassword' placeholder="Password" type="password" size="50" required/></p>
@@ -71,9 +72,13 @@ $i=0;
                 $tempname=$row['MMName'];
                 $tempcontact=$row['MMContactNumber'];
                ?>
+               <label >Hostel Name</label>
                <p><input class="form-control" name='hname<?php  print $i ?>' placeholder="Hostel Name" type="text" size="20" value=<?php echo $temphname ?> readonly/></p>
+               <label >Username</label>
              <p><input class="form-control" name='mmusername<?php  print $i ?>' placeholder="Username" type="text" size="50" value=<?php echo $tempusername ?> required/></p>
-             <p><input class="form-control" name='mmname<?php  print $i ?>' placeholder="Name" type="text" size="50" value=<?php echo $tempname ?> required/></p>
+              <label >Full Name</label>
+             <p><input class="form-control" name='mmname<?php  print $i ?>' placeholder="Name" type="text" size="50" value="<?php echo $tempname ?>" required/></p>
+             <label >Contact Number</label>
              <p><input class="form-control" name='mmcontact<?php  print $i ?>' placeholder="Contact Number" type="text" size="20" value=<?php echo $tempcontact ?> required/></p>
              <input class="btn btn-primary" name="update<?php  print $i ?>" type="submit" value="Update"/>
              </form>

@@ -103,11 +103,16 @@ $i=0;
                 $temphostelres=$row['HostelReside'];
                 $temphostelsub=$row['HostelSubscribed'];
                ?>
-               <p><input class="form-control" name='mmusername<?php  print $i ?>' placeholder="Username" type="text" size="50" value="Username: <?php echo $tempusername?>" readonly/></p>
-               <p><input class="form-control" name='roll<?php  print $i ?>' placeholder="Roll Number" type="text" size="20" value="Roll Number: <?php echo $temproll ?>" readonly/></p>
-               <p><input class="form-control" name='mmname<?php  print $i ?>' placeholder="Name" type="text" size="100" value="Name: <?php echo $tempname ?>" readonly/></p>
-               <p><input class="form-control" name='hostelres<?php  print $i ?>' placeholder="Hostel Resided" type="text" size="30" value="Hostel Resident<?php echo $temphostelres ?>" readonly/></p>
-               <p><input class="form-control" name='hostelsub<?php  print $i ?>' placeholder="Hostel Subscribed" type="text" size="30" value="Hostel Subscribed<?php echo $temphostelsub ?>" readonly/></p>
+               <label >Username</label>
+               <p><input class="form-control" name='mmusername<?php  print $i ?>' placeholder="Username" type="text" size="50" value="<?php echo $tempusername?>" readonly/></p>
+               <label >Roll Number</label>
+               <p><input class="form-control" name='roll<?php  print $i ?>' placeholder="Roll Number" type="text" size="20" value="<?php echo $temproll ?>" readonly/></p>
+               <label >Name</label>
+               <p><input class="form-control" name='mmname<?php  print $i ?>' placeholder="Name" type="text" size="100" value="<?php echo $tempname ?>" readonly/></p>
+               <label >Hostel Resident</label>
+               <p><input class="form-control" name='hostelres<?php  print $i ?>' placeholder="Hostel Resided" type="text" size="30" value="<?php echo $temphostelres ?>" readonly/></p>
+               <label >Hostel Subscribed</label>
+               <p><input class="form-control" name='hostelsub<?php  print $i ?>' placeholder="Hostel Subscribed" type="text" size="30" value="<?php echo $temphostelsub ?>" readonly/></p>
                  <input class="btn btn-primary " name="delete<?php  print $i ?>" type="submit" value="Delete User"/>
              </form>
            </div>
@@ -125,7 +130,6 @@ $i=0;
    while($j<$i){
      if(isset($_POST['delete'.$j])){
        $username=$_POST['mmusername'.$j];
-       echo $username;
        $sql2 = "DELETE FROM Users WHERE Username='".$username."'";
        if ($conn->query($sql2) === TRUE) {
            header("Location: updateusers.php");
