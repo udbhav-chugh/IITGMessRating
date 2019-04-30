@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: May 01, 2019 at 01:32 AM
+-- Generation Time: May 01, 2019 at 12:50 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -41,9 +41,9 @@ CREATE TABLE `Feedback` (
 --
 
 INSERT INTO `Feedback` (`ID`, `Username`, `HostelSubscribed`, `Feedback`, `YearMonth`) VALUES
-(1, 'udbha170123055', 'Kapili', 'ddfgsdfg', '201904'),
-(2, 'udbha170123055', 'Kapili', 'lolololololol Excellent ok OK', '201904'),
-(3, 'udbha170123055', 'Kapili', 'excellent ok', '201904');
+(6, 'udbha170123055', 'Kapili', 'The food is delicious . The quality is excellent really. I am loving it.', '201904'),
+(7, 'baran170102035', 'Lohit', 'The food is pathetic I hate it It is tasteless and filled with insects !!', '201904'),
+(8, 'shiva170123047', 'Kapili', 'good verygood outstanding !!', '201905');
 
 -- --------------------------------------------------------
 
@@ -64,8 +64,16 @@ CREATE TABLE `Hostels` (
 --
 
 INSERT INTO `Hostels` (`Name`, `MMUsername`, `MMPassword`, `MMName`, `MMContactNumber`) VALUES
+('Barak', 'barak', '551a70c29d91bc8b4c59bed50e38cd53', 'Barack Obama', '097430979430'),
+('Brahmaputra', 'brahmaputra', '762985108cb9ba102b3631c0a63f3d21', 'Narendra Modi', '987493750'),
+('Dhansiri', 'dhansiri', 'de6f334ef461e8919fa1516b8aa85821', 'Lionel Messi', '90943709579'),
+('Dihing', 'dihing', 'e22dab888a999c1838220f2dc65a3484', 'Shahrukh Khan', '98273954937'),
 ('Kapili', 'kapili', '342a588bb029dc5d9faa4f2c88a672a1', 'Amitabh Bachhan', '8860695878'),
-('Lohit', 'lohit', 'facb6460875b14ea8f8cdacdb38a90cf', 'Rohit Shetty', '8402028442');
+('Lohit', 'lohit', 'facb6460875b14ea8f8cdacdb38a90cf', 'Rohit Shetty', '8402028442'),
+('Manas', 'manas', '5d45c58ea1ef37f17c2f885219215426', 'Michael Jackson', '8402028443'),
+('Siang', 'siang', '22b90c7a49552cff20e161d8c0f3902e', 'Ranbir Kapoor', '97045670957'),
+('Subansiri', 'subansiri', '16d8389173b7fc41df0ac40d0b692e7f', 'Python Jackson', '8402028442'),
+('Umium', 'umium', '3491b02ac7019168d53304e07ccbd68e', 'Neil Nitin Mukesh', '09780837540');
 
 -- --------------------------------------------------------
 
@@ -83,9 +91,34 @@ CREATE TABLE `Keywords` (
 --
 
 INSERT INTO `Keywords` (`KeyName`, `Value`) VALUES
+('acidic', -2),
+('amazing', 4),
+('appetizing', 4),
+('awful', -3),
+('bad', -3),
+('bitter', -2),
+('burnt', -4),
+('delicious', 4),
+('delightful', 4),
+('enjoyable', 3),
 ('excellent', 5),
-('ok', 0),
-('pathetic', -5);
+('good', 3),
+('insects', -5),
+('msierable', -4),
+('okayish', 1),
+('outstanding', 5),
+('pathetic', -5),
+('pitful', -2),
+('plain', -2),
+('pleasant', 2),
+('poor', -2),
+('tasteful', 2),
+('tasteless', -3),
+('tastly', 3),
+('terrible', -4),
+('useless', -1),
+('verybad', -4),
+('verygood', 4);
 
 -- --------------------------------------------------------
 
@@ -111,8 +144,13 @@ CREATE TABLE `Users` (
 
 INSERT INTO `Users` (`Username`, `Password`, `RollNumber`, `Name`, `HostelReside`, `HostelSubscribed`, `HostelNew`, `Program`, `Designation`) VALUES
 ('admin', '21232f297a57a5a743894a0e4a801fc3', '-', 'Admin', '-', '-', '-', '-', 'admin'),
-('baran170102035', '202cb962ac59075b964b07152d234b70', '170101084', 'Mayank Baranwal', 'Kapili', 'Kapili', 'Kameng', 'B.Tech.', 'student'),
-('udbha170123055', '202cb962ac59075b964b07152d234b70', '170101081', 'Udbhav Chugh', 'Lohit', 'Kapili', 'Manas', 'B.Tech.', 'student');
+('annan170101007', '202cb962ac59075b964b07152d234b70', '170101007', 'Annanay Pratap', 'Lohit', 'Lohit', '-', 'B.Tech.', 'student'),
+('baran170102035', '202cb962ac59075b964b07152d234b70', '170101084', 'Mayank Baranwal', 'Kapili', 'Lohit', '-', 'B.Tech.', 'student'),
+('gulat170123030', '202cb962ac59075b964b07152d234b70', '170101082', 'Lavish Gulati', 'Kapili', 'Kapili', '-', 'B.Tech.', 'student'),
+('gupta170101019', '202cb962ac59075b964b07152d234b70', '170101019', 'Chirag', 'Lohit', 'Kapili', '-', 'B.Tech.', 'student'),
+('shiva170123047', '202cb962ac59075b964b07152d234b70', '170101086', 'Shivang Dalal', 'Lohit', 'Kapili', '-', 'B.Tech.', 'student'),
+('tanya170123052', '202cb962ac59075b964b07152d234b70', '170123052', 'Tanya Chuahan', 'Subansiri', 'Lohit', '-', 'B.Tech.', 'student'),
+('udbha170123055', '202cb962ac59075b964b07152d234b70', '170101081', 'Udbhav Chugh', 'Lohit', 'Kapili', '-', 'B.Tech.', 'student');
 
 --
 -- Indexes for dumped tables
@@ -150,7 +188,7 @@ ALTER TABLE `Users`
 -- AUTO_INCREMENT for table `Feedback`
 --
 ALTER TABLE `Feedback`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
