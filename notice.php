@@ -49,6 +49,7 @@ $hcount = 0;
     $totcount = 0;
     $poscount=0;
     $negcount=0;
+    $nocount=0;
     $hcount += 1;
     $sql = "SELECT * FROM Feedback WHERE YearMonth='$date' AND HostelSubscribed='$hostel'";
     // echo $sql;
@@ -82,8 +83,11 @@ $hcount = 0;
           // echo $rating/$count;
           if($rating>0)
           {$poscount=$poscount+1;}
-          else{
+          else if($rating<0){
             $negcount=$negcount+1;
+          }
+          else{
+            $nocount=$nocount+1;
           }
           $totrating +=  $rating / $count;
           $totcount += 1;
@@ -110,13 +114,14 @@ $hcount = 0;
       <div id="collapse<?php echo $hostel; ?>" class="collapse <?php if ($hcount == 1) echo "show";?>" aria-labelledby="heading<?php echo $hostel; ?>" data-parent="#accordion">
         <div class="card-body">
           <form action="notice.php" method="post">
-            <label>Total Feedbacks</label>
+            <label>Total Meaningful Feedbacks</label>
               <p><input class="form-control" type="text" size="50" value= <?php echo $totcount ?> readonly/></p>
               <label>Positive Feedbacks</label>
               <p><input class="form-control" type="number" size="50" value= <?php echo $poscount ?> readonly/></p>
               <label>Negative Feedbacks</label>
               <p><input class="form-control" type="number" size="50" value= <?php echo $negcount ?> readonly/></p>
-
+              <label>Neutral Feedbacks</label>
+              <p><input class="form-control" type="number" size="50" value= <?php echo $nocount ?> readonly/></p>
 
           </form>
         </div>
