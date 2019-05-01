@@ -28,7 +28,7 @@ $i=0;
         <div class="row">
           <div class="col-lg-2"></div>
           <div class="col align-self-center">
-            <br><br>
+            <br><br><br>
 
 
   <form action="updatehostel.php" method="post">
