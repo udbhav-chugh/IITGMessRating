@@ -49,8 +49,12 @@ if (empty($_SESSION['logged_in']))
         <a class="nav-link" href="/MessRating/updatekeywords.php">Add/Remove Keywords<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="/MessRating/updatemess.php">Update Mess<span class="sr-only">(current)</span></a>
+      </li>      
+      <li class="nav-item">
         <a class="nav-link" href="/MessRating/logout.php">Logout<span class="sr-only">(current)</span></a>
       </li>
+
     </ul>
   </div>
   </nav>
